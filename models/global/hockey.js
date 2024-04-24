@@ -1,0 +1,125 @@
+const {DataTypes} = require("sequelize")
+module.exports = (sequelize,Sequelize) => {
+    const hockey = sequelize.define("hockey", {
+        id:{
+            type: Sequelize.UUID,
+            defaultValue: Sequelize.UUIDV4,
+            allowNull: false,
+            primaryKey: true
+        },
+        gameName:{
+            type:Sequelize.STRING,
+            allowNull:false
+        },
+        goals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        penaltyMinutes:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        timeOnIce:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        plus:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        minus:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        faceOffPerc:{
+            type:Sequelize.DataTypes.DECIMAL(10,2),
+            allownull:false,
+            defaultValue:0
+        },
+        assists:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        emptyNetGoals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        overtimeLoss:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        winningGoals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        otGoals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        playGoal:{
+            type:Sequelize.INTEGER,
+            allownull:false,
+            defaultValue:0
+        },
+        points:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        shotsOnGoals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        shortHandedGoals:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        shutout:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        saves:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        matchStatus:{
+            type:Sequelize.SMALLINT,
+            allownull:false,
+            defaultValue:0
+        },
+        score:{
+            type:Sequelize.SMALLINT,
+            allowNull: false,
+            defaultValue:0 
+        },
+        userId:{
+            type:Sequelize.UUID,
+            onDelete: "CASCADE",
+            references:{
+                model:'users',
+                key:'id'
+            }
+        },
+        date:{
+            type:Sequelize.DATEONLY,
+            allowNull:false
+        }
+       },{
+        timestamps: true
+       });
+    return hockey;
+}

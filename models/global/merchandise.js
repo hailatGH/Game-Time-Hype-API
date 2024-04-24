@@ -1,0 +1,101 @@
+const {DataTypes} = require("sequelize")
+module.exports = (sequelize,Sequelize) => {
+    const merchandise = sequelize.define("merchandise", {
+        id:{
+            type: Sequelize.UUID,
+            defaultValue: Sequelize.UUIDV4,
+            allowNull: false,
+            primaryKey: true
+        },
+        name:{
+            type:Sequelize.STRING,
+            allowNull:false,
+        },
+        description:{
+            type:Sequelize.STRING,
+            allowNull:false,
+        },
+        thumbnail:{
+            type:Sequelize.STRING,
+            allowNull:false,
+        },
+        media:{
+            type:DataTypes.JSON,
+            allowNull:false,
+            defaultValue:[]
+        },
+        basePrice:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        },
+        discountPercentage:{
+            type:Sequelize.SMALLINT,
+            allowNull:false,
+            validate:{
+                min:0,
+                max:100
+            }
+        },
+        discountedPrice:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        },
+        quantity:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        },
+        avlQuantity:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        },
+        categoryId:{
+            type:Sequelize.INTEGER,
+            references:{
+                model:'categories',
+                key:'id'
+            }
+        },
+        hasSizeAvailable:{
+            type:Sequelize.BOOLEAN,
+            defaultValue:false
+        },
+        s:{
+            type:Sequelize.INTEGER,
+            allowNull:true,
+            defaultValue:0
+        },
+        m:{
+            type:Sequelize.INTEGER,
+            allowNull:true,
+            defaultValue:0
+        },
+        l:{
+            type:Sequelize.INTEGER,
+            allowNull:true,
+            defaultValue:0
+        },
+        xl:{
+            type:Sequelize.INTEGER,
+            allowNull:true,
+            defaultValue:0
+        },
+        xxl:{
+            type:Sequelize.INTEGER,
+            allowNull:true,
+            defaultValue:0
+        },
+        status:{
+            type:DataTypes.BOOLEAN,
+            allowNull:true,
+            default:true
+        },
+        isDeleted:{
+            type:DataTypes.BOOLEAN,
+            allowNull:true,
+            defaultValue:false
+        }
+       },{
+        timestamps: true
+       });
+    return merchandise;
+}
