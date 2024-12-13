@@ -31,6 +31,8 @@ exports.getAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  console.log("Hitting create ednpoint");
+  
   db.addresses
     .create({
       ...req.body,
