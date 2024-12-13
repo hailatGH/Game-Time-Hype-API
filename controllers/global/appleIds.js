@@ -38,8 +38,6 @@ exports.sendAppleId = (req,res) => {
           db.appleIds.upsert({
             id:req.body.id,
             email:req.body.email,
-            firstName:req.body.firstName,
-            lastName:req.body.lastName,
           }).then((data)=>{
             if(data){
               res.status(200).send({
