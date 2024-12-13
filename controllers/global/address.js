@@ -41,7 +41,7 @@ exports.create = (req, res) => {
     .then((data) => {
       res.status(201).send({
         success: true,
-        message: "Record has been inserted successfully",
+        message: "Record created!",
       });
     })
     .catch((err) => {
