@@ -39,6 +39,10 @@ module.exports = (sequelize,Sequelize) => {
             type:Sequelize.STRING,
             allowNull:false
         },
+        subCity:{
+            type:Sequelize.STRING,
+            allowNull:false
+        },
         stateId:{
             type:Sequelize.SMALLINT,
             allowNull:false,
@@ -58,6 +62,10 @@ module.exports = (sequelize,Sequelize) => {
                 model:'users',
                 key:'id'
             }
+        },
+        description:{
+            type: Sequelize.STRING,
+            allowNull: true
         }
        },{
         timestamps: true
