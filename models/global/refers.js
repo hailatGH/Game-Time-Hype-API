@@ -29,6 +29,10 @@ module.exports = (sequelize,Sequelize) => {
             type:Sequelize.STRING,
             allowNull:true,
             validate: { len: [0,11] }
+        },
+        remarks:{
+            type:Sequelize.STRING,
+            allowNull:true
         }
        },{
         timestamps: true
