@@ -48,4 +48,5 @@ module.exports = (app) => {
     require("../routes/global/emailInvitees")(app)
     require("../routes/global/schedules")(app)
     require("../routes/global/blocklist")(app)
+    require("../routes/global/healthCheck")(app)
 }
