@@ -3,6 +3,9 @@ const db = require("../../models");
 const validate = require("../../validation");
 
 exports.getAll = (req, res) => {
+
+  console.log("Hitting get all endpoint");
+  
   db.addresses.belongsTo(db.states)
   db.addresses
     .findAll({
